@@ -8,6 +8,8 @@ Specific Components
 
 Extra Components
 1. Pin header
+2. TODO - Ben
 
 Extra equipment
 1. Soldering iron and solder
+2. TODO - Ben
