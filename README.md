@@ -1,5 +1,6 @@
 ---
 title: README
+permalink: index.html
 ---
 
 # README
