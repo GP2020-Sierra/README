@@ -1,3 +1,7 @@
+---
+title: README
+---
+
 # README
 
 Instructions on how to reproduce our project
