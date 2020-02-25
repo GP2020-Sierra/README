@@ -8,8 +8,9 @@ Specific Components
 
 Extra Components
 1. Pin header
-2. TODO - Ben
+2. Fan (Optional)
+3. Jumper wires xTF (for esp8266 programming; x is gender to plug into your usb to uart adapter)
 
 Extra equipment
 1. Soldering iron and solder
-2. TODO - Ben
+2. USB to UART
