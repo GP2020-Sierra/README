@@ -1,8 +1,3 @@
----
-title: README
-permalink: index.html
----
-
 # README
 
 Instructions on how to reproduce our project
