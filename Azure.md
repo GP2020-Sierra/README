@@ -153,6 +153,3 @@
     When a device is first ran, it will be created under `IoT Devices` in the IoT Hub. 
     Clicking on it will bring up it's info page, where you can click at the top to modify the device twin.
     From here you can customize its location and owner.
-
-
-TODO: modify app manifest before building it
