@@ -14,9 +14,13 @@
 
         - Generate a validation code for the certificate, and run `azsphere tenant download-validation-certificate -c [VALIDATION CODE] -o tenant-validation.cer`
 
-        - Upload the validation certificate to confirm.        
+        - Upload the validation certificate to confirm.     
 
-4) Create an `IoT Hub Device Provisioning Service`. We used 
+    - Setup message routing
+
+        - Under `Message routing` add an endpoint. Select the built in `events` endpoint and set the data source to `Device Telemetry Messages`.
+
+4) Create an `IoT Hub Device Provisioning Service`.
 
     - Link to the IoT Hub
 
@@ -46,9 +50,13 @@
 
             (optionally updating the default deployment name and owner (which isn't publically displayed on the site, but is exposed via our API))
 
-5) Create an `SQL Server`. 
+5) Create an `SQL Server`.
 
     - Create an `SQL Database` inside the server. We chose standard tier and 10 DTUs.
+
+    - Under `Firewalls and Virtual Networks`, ensure `Allow Azure services and resources to access this server` is ON.
+
+    - Connect to the SQL database. We would recommend using [Azure Data Studio](https://docs.microsoft.com/en-us/sql/azure-data-studio/download-azure-data-studio?view=sql-server-ver15)
 
     - Run the setup code for the DB which can be found in the [`db-setup.ipynb` file within the GP2020-Sierra/azure-sql-db](https://github.com/GP2020-Sierra/azure-sql-db/blob/master/db-setup.ipynb) repo, or below:
 
@@ -95,9 +103,56 @@
 
 6) Create a `Function App`
 
+    - Create a function app, remembering it's name / URL `[name].azurewebsites.net`. Select `Node.js` for the runtime stack
+
+    - Under `Function App Settings`, set the `Runtime version` to `~2`.
+
+    - Under `Configuration` we need to add several Application Settings.
+
+        - For connecting to the IoT Hub
+
+            - Name: `IOT_HUB_CONNECTION`
+
+              Value: inside your IoT Hub, under `Built in endpoints`, the `Event Hub-compatible endpoint` in the `Events` section. (Should begin with `Endpoint=`...)
+
+            - Name: `IOT_HUB_EVENT_HUB_NAME`
+
+              Value: inside your IoT Hub, under `Built in endpoints`, the `Event Hub-compatible name` in the `Events` section.
+
+        - For connecting to the DB
+
+            - Name: `DATABASE_SERVER`
+
+              Value: `[SQL Server name].database.windows.net` from part 5
+
+            - Name: `DATABASE_NAME`
+
+              Value: `[SQL DB name]` from part 5
+
+            - Name: `DATABASE_USERNAME`
+
+              Value: `azureData`
+
+            - Name: `DATABASE_PASSWORD`
+
+              Value: the password you generated from part 5
+
+    - Follow Microsoft's documentation to setup VS Code for Azure functions.
+
+    - Download our azure functions code
+        - `git clone https://github.com/GP2020-Sierra/azure-functions`
+        
+        - `cd azure-functions`
+        
+        - `npm install`
+        
+        Open this directory in VS Code, and push it to your new Azure Functions instance.
+
 7) Setup device twins
 
-
+    When a device is first ran, it will be created under `IoT Devices` in the IoT Hub. 
+    Clicking on it will bring up it's info page, where you can click at the top to modify the device twin.
+    From here you can customize its location and owner.
 
 
 TODO: modify app manifest before building it

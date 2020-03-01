@@ -9,9 +9,9 @@ Instructions on how to reproduce our project
 
 1) [Required Hardware](/RequiredHardware.md)
 
-2) [Hardware Setup](/HardwareSetup.md)
+2) [Azure](/Azure.md)
 
-3) [Azure](/Azure.md)
+3) [Hardware Setup](/HardwareSetup.md)
 
 4) (Optional) [Website](/Website.md)
 

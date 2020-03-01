@@ -21,15 +21,29 @@ To create a tenant, you start an azure sphere command line (either with the prov
 
 You select a tenant by calling `azsphere tenant select --tenantid [id]`, with the id being found by either listing them or during creation (noting creation auto selects tenants (at least at first))
 
-If you have the right tenant selected, you can claim the devices with `azsphere dev claim`
+If you have the right tenant selected, you can claim each device with `azsphere dev claim`
 
 ## Building the code
-Clone the repo `https://github.com/GP2020-Sierra/azure-sphere` and build the code following Microsoft's instructions.
+- Clone the repo `https://github.com/GP2020-Sierra/azure-sphere` 
 
-To simply deploy the code to multiple boards you can create a product and deploy the `.imagepackage` file from the `out` folder.
-1) `azsphere prd create -n sierra`
-2) `azsphere device-group deployment create --devicegroupname "Field Test" --productname "sierra" --filepath "<PATH>\out\Debug-3\Sierra2020.imagepackage"`
-3) (for each device) `azsphere dev ect --productname sierra`
+- Update the `app_manifest.json` file
 
-## Image of a deployed device
+    1) Under `AllowedConnections` in `Capabilities`, replace `sierra.azure-devices.net` with the hostname listed for your IoT Hub in Azure.
+
+    2) Under `DeviceAuthentication` in `Capabilities`, replace the UUID with the UUID of your tenant (can be seen in the output of `azsphere tenant list`)
+
+- Build the code following Microsoft's instructions. 
+
+- To simply deploy the code to multiple boards you can create a product and deploy the `.imagepackage` file from the `out` folder.
+
+    1) `azsphere prd create -n sierra`
+
+    2) `azsphere device-group deployment create --devicegroupname "Field Test" --productname "sierra" --filepath "<PATH>\out\Debug-3\Sierra2020.imagepackage"`
+
+    3) (for each device) `azsphere dev ect --productname sierra`
+
+## Deployed device
+
+Below is an image of what a deployed device looks like
+
 ![Deployed Device](/assets/device.jpg)
