@@ -17,11 +17,11 @@ You also need the AzureSphere SDK installed, as well as ninja added to the path.
 
 ### Create a tenant
 
-To create a tennant, you start an azure sphere command line (either with the provided script or by adding it straight into the path) and then call `azsphere tenant create --name [name]`, noting that this requires a device attached, and one device can only create at most one tenant.
+To create a tenant, you start an azure sphere command line (either with the provided script or by adding it straight into the path) and then call `azsphere tenant create --name [name]`, noting that this requires a device attached, and one device can only create at most one tenant.
 
 You select a tenant by calling `azsphere tenant select --tenantid [id]`, with the id being found by either listing them or during creation (noting creation auto selects tennants (at least at first))
 
-If you have the right tennant selected, you can claim the devices with `azsphere dev claim`
+If you have the right tenant selected, you can claim the devices with `azsphere dev claim`
 
 ## Building the code
 Clone the repo `https://github.com/GP2020-Sierra/azure-sphere` and build the code following Microsoft's instructions.
