@@ -30,3 +30,6 @@ To simply deploy the code to multiple boards you can create a product and deploy
 1) `azsphere prd create -n sierra`
 2) `azsphere device-group deployment create --devicegroupname "Field Test" --productname "sierra" --filepath "<PATH>\out\Debug-3\Sierra2020.imagepackage"`
 3) (for each device) `azsphere dev ect --productname sierra`
+
+## Image of a deployed device
+![Deployed Device](/assets/device.jpg)

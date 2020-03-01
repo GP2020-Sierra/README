@@ -17,5 +17,8 @@ Instructions on how to reproduce our project
 
 5) (Optional) [Twitter Bot](/TwitterBot.md)
 
+## System diagram
+![System diagram](/assets/SystemsDiagram.svg)
+
 ## Licensing
 [MIT License](/LICENSE)
