@@ -19,7 +19,7 @@ You also need the AzureSphere SDK installed, as well as ninja added to the path.
 
 To create a tenant, you start an azure sphere command line (either with the provided script or by adding it straight into the path) and then call `azsphere tenant create --name [name]`, noting that this requires a device attached, and one device can only create at most one tenant.
 
-You select a tenant by calling `azsphere tenant select --tenantid [id]`, with the id being found by either listing them or during creation (noting creation auto selects tennants (at least at first))
+You select a tenant by calling `azsphere tenant select --tenantid [id]`, with the id being found by either listing them or during creation (noting creation auto selects tenants (at least at first))
 
 If you have the right tenant selected, you can claim the devices with `azsphere dev claim`
 
