@@ -1,4 +1,4 @@
-# Twitter Bot
+# <a href="https://github.com/GP2020-Sierra/twitter-bot">Twitter Bot</a>
 ## Usage
 ### Python script
 This script was written in Python 3.7 as that's what Microsoft Azure supports, 
