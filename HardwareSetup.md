@@ -9,6 +9,13 @@ Solder pins into:
 * The 5v header next to the CLICK 2 (optional; for fan)
 * The ESP8266 pin P13
 
+When attaching the DHT11 (assuming your using the same boards we are):
+* Seperate out the signal (green wire)
+* Plug the signal wire into pin 13 on the ESP (we angled the pin to make it fit better)
+* Plug the power pair into the PMOD connector, with the blank in the pin socket trailing over the edge
+
+Double check the power config, as it is easy to make the DHT11's melt (We blew one up unintentionally, it was fun)
+
 ## Software setup
 
 We used VSCode for building all our projects
@@ -21,4 +28,15 @@ To create a tenant, you start an azure sphere command line (either with the prov
 
 You select a tenant by calling `azsphere tenant select --tenantid [id]`, with the id being found by either listing them or during creation (noting creation auto selects tenants (at least at first))
 
-If you have the right tenant selected, you can claim each device with `azsphere dev claim`
+If you have the right tenant selected, you can claim the devices with `azsphere dev claim`
+
+## Building the code
+Clone the repo `https://github.com/GP2020-Sierra/azure-sphere` and build the code following Microsoft's instructions.
+
+To simply deploy the code to multiple boards you can create a product and deploy the `.imagepackage` file from the `out` folder.
+1) `azsphere prd create -n sierra`
+2) `azsphere device-group deployment create --devicegroupname "Field Test" --productname "sierra" --filepath "<PATH>\out\Debug-3\Sierra2020.imagepackage"`
+3) (for each device) `azsphere dev ect --productname sierra`
+
+## Image of a deployed device
+![Deployed Device](/assets/device.jpg)
