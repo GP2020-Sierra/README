@@ -10,9 +10,9 @@ The website is made in vue.js & nuxt.js which enables us to compile it into a st
 
 3) Github actions are used to automatically build the `source` branch into static files on the `master` branch. However, this does not cause Github pages to update so we have to force it.
 
-    - In your Github Account Settings, go to Developer Settings, Personal Access Tokens. Generate a personal access token, selecting the `repo` scope. 
+  - In your Github Account Settings, go to Developer Settings, Personal Access Tokens. Generate a personal access token, selecting the `repo` scope. 
 
-    - In your forked repo, go to Settings, Secrets, Add a new secret called `GH_PAGES_REBUILD_TOKEN` with the value being the personal access token you just added.
+  - In your forked repo, go to Settings, Secrets, Add a new secret called `GH_PAGES_REBUILD_TOKEN` with the value being the personal access token you just added.
 
 4) Enable Github Pages in the repo settings (selecting the `master` branch as the source if asked).
 
