@@ -1,19 +1,46 @@
 # Twitter Bot
+## Usage
+### Python script
+This script was written in Python 3.7 as that's what Microsoft Azure supports, 
+but can be run anywhere with a suitable Python installation, 
+<a href="https://github.com/pyenv/pyenv">`pyenv`</a> is handy when using multiple 
+versions of Python on one machine.
 
-If running the bot on Linux, `python` may have to be replaced by `python3`
+Required modules are all available on <a href="https://pypi.org/">PyPi</a> and can be installed with:
 
-1) Clone the repo `git clone https://github.com/GP2020-Sierra/twitter-bot/`
+    pip install -r requirements.txt
 
-2) Modify the `summaryURL` near the top of the file, replacing `"https://gp2020-sierra.azurewebsites.net/api/summary"` with `"https://[YOUR APP FUNCTION NAME].azurewebsites.net/api/summary"`
+The script can then simply be run with:
 
-3) Create a virtual environment `python -m venv env`. Activate it using `source env/bin/activate` on Linux/Bash or `.\env\Scripts\activate` on Windows (consult the [venv Documentation](https://docs.python.org/3/library/venv.html) for other platforms)
+    python SierraBot.py <url of summary> --daemon <tweet frequency>
 
-4) Install dependencies `pip install -r requirements.txt`
+E.g. <a href="https://twitter.com/CLSierra2020">@CLSierra2020</a> is run with 
+`python SierraBot.py https://gp2020-sierra.azurewebsites.net/api/summary --daemon 15mins`
 
-5) Run the script once to generate the needed files `python Tweeter.py`
+For `--daemon` and other options taking time periods parsing is done with the  
+<a href="https://github.com/wroberts/pytimeparse">`pytimeparse`</a> module, which 
+support a wide range of fairly relaxed formats.
 
-6) Modify the `keys.json` file with your Twitter API keys
+Options to keep the bot running include running it in the background using the 
+`--log-file` option to send log output to a file or using 
+<a href="https://www.gnu.org/software/screen/">GNU Screen</a>.
+ 
+| Option | Usage | Default |
+|--------|:------|:--------|
+| `-h`, `--help` | show help | |
+| `-warn <max. concentration>`, `--warning-threshold <max. concentration>` | CO₂ concentration (ppm) at which to post a warning | 1400 ppm |
+| `-safe <safe concentration>`, `--safety-threshold <safe concentration>` |CO₂ concentration (ppm) at which to post a safety notice | 1000 ppm |
+| `--averaging-period <time threshold>` | Time period for which to consider conditions | All time (as far as provided by the summary) |
+| `--warning-period <warning period>` | How frequently to repeat warnings about rooms with detrimental conditions | `<time threshold>` if given, otherwise 90 minutes |
+| `-keys <key file>`, `--key-file <key file>` | File containing Twitter API keys | `keys.json` |
+| `-templates <template file>`, `--template-file <template file>` | File containing templates for tweets | `templates.json` |
+| `-log [log file]`, `--log-file [log file]` | File for log messages | `SierraBot.py.log` if option provided, otherwise log messages go to stdout/stderr |
+| `--logging-level <logging level>` | Minimum level of log messages, one of: `CRITICAL`, `ERROR`, `WARNING`, `INFO`, `DEBUG`, `NOTSET` | `WARNING` |
 
-7) Run the python script again and your bot should be running!
-
-Keeping the bot running depends on your platform and could be achieved with something like the `screen` command on Linux. Launching the bot on start up depends on your OS and configuration, consult its documentation for details.
+### Twitter API
+Running a Twitter bot requires access to Twitter's API, which you can request 
+<a href="https://developer.twitter.com/en/apply-for-access">here</a>. You'll 
+need to create an app to get an API key and secret and an access token and secret.
+When you first run `SierraBot.py` it will create a `.json` file in which to place 
+these. The script will log a `DEBUG` message with the account handle if you want 
+to check it has access.
