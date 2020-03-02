@@ -48,7 +48,7 @@
             }
             ```
 
-            (optionally updating the default deployment name and owner (which isn't publically displayed on the site, but is exposed via our API))
+            (optionally updating the default deployment name and owner (which isn't publicly displayed on the site, but is exposed via our API))
 
 5) Create an `SQL Server`.
 
@@ -103,7 +103,7 @@
 
 6) Create a `Function App`
 
-    - Create a function app, remembering it's name / URL `[name].azurewebsites.net`. Select `Node.js` for the runtime stack
+    - Create a function app, remembering its name / URL `[name].azurewebsites.net`. Select `Node.js` for the runtime stack
 
     - Under `Function App Settings`, set the `Runtime version` to `~2`.
 
@@ -151,5 +151,5 @@
 7) Setup device twins
 
     When a device is first ran, it will be created under `IoT Devices` in the IoT Hub. 
-    Clicking on it will bring up it's info page, where you can click at the top to modify the device twin.
+    Clicking on it will bring up its info page, where you can click at the top to modify the device twin.
     From here you can customize its location and owner.

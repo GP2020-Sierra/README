@@ -16,7 +16,7 @@ Although the twitter bot and website are both optional, you probably want at lea
 
 6) (Optional) [Twitter Bot](/TwitterBot.md)
 
-7) (Optional) Write your own program which utilizes the data by accessing the [API, documented here](/ApiDocumentation.md)
+7) (Optional) Write your own program which utilises the data by accessing the [API, documented here](/ApiDocumentation.md)
 
 ## System diagram
 ![System diagram](/assets/SystemsDiagram.svg)
