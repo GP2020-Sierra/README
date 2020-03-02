@@ -30,13 +30,3 @@ You select a tenant by calling `azsphere tenant select --tenantid [id]`, with th
 
 If you have the right tenant selected, you can claim the devices with `azsphere dev claim`
 
-## Building the code
-Clone the repo `https://github.com/GP2020-Sierra/azure-sphere` and build the code following Microsoft's instructions.
-
-To simply deploy the code to multiple boards you can create a product and deploy the `.imagepackage` file from the `out` folder.
-1) `azsphere prd create -n sierra`
-2) `azsphere device-group deployment create --devicegroupname "Field Test" --productname "sierra" --filepath "<PATH>\out\Debug-3\Sierra2020.imagepackage"`
-3) (for each device) `azsphere dev ect --productname sierra`
-
-## Image of a deployed device
-![Deployed Device](/assets/device.jpg)
