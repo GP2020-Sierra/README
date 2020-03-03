@@ -16,6 +16,8 @@ To program the ESP, you hook it up to the USB-to-UART converter; ensure it is in
     1) Under `AllowedConnections` in `Capabilities`, replace `sierra.azure-devices.net` with the hostname listed for your IoT Hub in Azure.
 
     2) Under `DeviceAuthentication` in `Capabilities`, replace the UUID with the UUID of your tenant (can be seen in the output of `azsphere tenant list`)
+    
+    3) Under `CmdArgs`, replace the ID with the `ID Scope` from your IoT Hub DPS in Azure.
 
 - Build the code following Microsoft's instructions. 
 
