@@ -21,5 +21,11 @@ Although the twitter bot and website are both optional, you probably want at lea
 ## System diagram
 ![System diagram](/assets/SystemsDiagram.svg)
 
+## Deployed device
+
+Below is an image of what a deployed device looks like
+
+![Deployed Device](/assets/device.jpg)
+
 ## Licensing
 [MIT License](/LICENSE)
